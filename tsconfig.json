@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false
+  },
+  "include": [
+    ".eslintrc.js",
+    ".babelrc",
+    "jest.config",
+    "jest.setup.js",
+    "postcss.config.cjs",
+    "tailwind.config.cjs",
+    "webpack.config.js",
+    "./src/**/*",
+    "./src/types"
+  ],
+  "exclude": ["./node_modules"],
+}
