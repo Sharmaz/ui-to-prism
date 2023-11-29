@@ -2,7 +2,7 @@ import Table from './table';
 import { TableElement } from '../types/definitions';
 
 const Form = ({ tables }: TableElement[] | any) => (
-  <div className="w-[300px]">
+  <div className="w-[400px]">
     <form action="">
       <div className="flex justify-between my-4">
         <span className="text-slate-900 font-bold text-2xl mx-2">Tables</span>

@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply text-slate-400 scroll-smooth;
+    @apply text-slate-700 scroll-smooth;
   }
   h1 {
     @apply text-2xl;
@@ -37,6 +37,14 @@
     rounded-md
     px-2
     m-2
+  }
+
+  .button-red {
+    @apply
+    bg-red-500
+    text-white
+    rounded-md
+    px-2
   }
 
 }
