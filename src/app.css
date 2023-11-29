@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-slate-400 scroll-smooth;
+  }
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply no-underline text-slate-300;
+  }
+
+
+  .button-primary {
+    @apply
+    text-white
+    bg-green-400
+    rounded-md
+    px-2
+  }
+
+  .button-secondary {
+    @apply
+    text-green-400
+    border-solid
+    border-2
+    border-green-400
+    rounded-md
+    px-2
+    m-2
+  }
+
+}
