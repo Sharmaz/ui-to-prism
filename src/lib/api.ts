@@ -9,8 +9,7 @@ export function createTable(tables) {
 }
 
 export function findOneTable(tables, id) {
-  const singleTable = tables.find((table) => table.id === id);
-  return singleTable;
+  return tables.find((table) => table.id === id);
 }
 
 export function updateTable(tables, id, changes) {
@@ -49,8 +48,7 @@ export function createAttr(table) {
   return [...table];
 }
 export function findOneAttr(table, id) {
-  const singleAttr = table.properties.find((attr) => attr.id === id);
-  return singleAttr;
+  return table.properties.find((attr) => attr.id === id);
 }
 
 export function updateAttr(table, id, changes) {
@@ -72,6 +70,49 @@ export function deleteAttr(table, id) {
   table.properties.forEach((attribute, index) => {
     if (attribute.id === id) {
       table.properties.splice(index, 1);
+    }
+  });
+
+  return [...table];
+}
+
+export function createRelationship(table) {
+  const newRelationship = {
+    id: table.relationships.length + 1,
+    name: 'attribute',
+    table: 'Table',
+    field: 'FK',
+    reference: 'id',
+  };
+
+  table.relationships.push(newRelationship);
+  return [...table];
+}
+
+export function findOneRelationship(table, id) {
+  return table.relationships.find((relationship) => relationship.id === id);
+}
+
+export function updateRelationship(table, id, changes) {
+  const relationshipToUpdate = findOneAttr(table, id);
+  const updatedRelationship = {
+    ...relationshipToUpdate,
+    ...changes,
+  };
+
+  table.relationships.forEach((relationship, index) => {
+    if (relationship.id === id) {
+      table.relationships.splice(index, 1, updatedRelationship);
+    }
+  });
+
+  return [...table];
+}
+
+export function deleteRelationship(table, id) {
+  table.relationships.forEach((relationship, index) => {
+    if (relationship.id === id) {
+      table.relationships.splice(index, 1);
     }
   });
 

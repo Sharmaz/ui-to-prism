@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { deleteAttr, updateAttr } from '../lib/api';
 
-const Column = ({
+const Attribute = ({
   propertie,
   table,
   tables,
@@ -38,4 +38,4 @@ const Column = ({
   );
 };
 
-export default Column;
+export default Attribute;

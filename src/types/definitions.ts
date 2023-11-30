@@ -13,6 +13,8 @@ export type Property = {
 
 export type Relationship = {
   id: number;
+  name: string;
   table: string;
-  foreingKey: string;
+  field: string;
+  reference: string;
 };
