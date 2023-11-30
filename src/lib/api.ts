@@ -37,3 +37,43 @@ export function deleteTable(tables, id) {
   });
   return [...tables];
 }
+
+export function createAttr(table) {
+  const newAttr = {
+    id: 1,
+    name: 'attribute',
+    type: 'type',
+  };
+
+  table.properties.push(newAttr);
+  return [...table];
+}
+export function findOneAttr(table, id) {
+  const singleAttr = table.properties.find((attr) => attr.id === id);
+  return singleAttr;
+}
+
+export function updateAttr(table, id, changes) {
+  const attrToUpdate = findOneAttr(table, id);
+  const updatedAttr = {
+    ...attrToUpdate,
+    ...changes,
+  };
+
+  table.properties.forEach((attribute, index) => {
+    if (attribute.id === id) {
+      table.properties.splice(index, 1, updatedAttr);
+    }
+  });
+
+  return [...table];
+}
+export function deleteAttr(table, id) {
+  table.properties.forEach((attribute, index) => {
+    if (attribute.id === id) {
+      table.properties.splice(index, 1);
+    }
+  });
+
+  return [...table];
+}

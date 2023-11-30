@@ -1,15 +1,11 @@
 import { useState } from 'react';
 import { TableElement } from '../types/definitions';
-import { deleteTable, updateTable } from '../lib/api';
+import { deleteTable, updateTable, createAttr } from '../lib/api';
+import Column from './column';
 
 const Table = ({ table, tables, setTables }: TableElement | any) => {
-  const [columns, setColumns] = useState<{ attr: string, type: string }[]>([]);
   const [tableName, setTableName] = useState<string>(table.name);
   const [editName, setEditName] = useState<string>('');
-
-  const handleAddColumns = () => {
-    setColumns([...columns, { attr: 'attr', type: 'type' }]);
-  };
 
   return (
     <div>
@@ -40,41 +36,26 @@ const Table = ({ table, tables, setTables }: TableElement | any) => {
         table.properties.length
           ? (
             table.properties.map((propertie) => (
-              <div key={propertie.id} className="flex justify-between">
-                <input
-                  className="border-solid border-2 w-1/2 m-2 px-2"
-                  type="text"
-                  name="attr"
-                  id=""
-                  value={propertie.name}
-                />
-                <input
-                  className="border-solid border-2 w-1/2 m-2 px-2"
-                  type="text"
-                  name="type"
-                  id=""
-                  value={propertie.type}
-                />
-                <button className="button-red m-2" type="button">Delete</button>
-              </div>
+              <Column
+                key={propertie.id}
+                propertie={propertie}
+                table={table}
+                tables={tables}
+                setTables={setTables}
+              />
             ))
           )
           : null
       }
-      {
-        columns.length
-          ? (
-            columns.map((col) => (
-              <div className="flex justify-between">
-                <input className="border-solid border-2 w-1/2 m-2 px-2" type="text" name={col.attr} id="" />
-                <input className="border-solid border-2 w-1/2 m-2 px-2" type="text" name={col.type} id="" />
-                <button className="button-red m-2" type="button">Delete</button>
-              </div>
-            ))
-          )
-          : null
-      }
-      <button type="button" onClick={() => handleAddColumns()} className="button-secondary">Add Column</button>
+      <button
+        type="button"
+        onClick={() => {
+          setTables([...tables, ...createAttr(table)]);
+        }}
+        className="button-secondary"
+      >
+        Add Column
+      </button>
     </div>
   );
 };
