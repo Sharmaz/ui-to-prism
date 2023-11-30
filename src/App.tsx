@@ -5,9 +5,9 @@ import { TableElement } from './types/definitions';
 import './app.css';
 
 const App = () => {
-  const [tables] = useState<TableElement[]>(placeholderTables);
+  const [tables, setTables] = useState<TableElement[]>(placeholderTables);
   return (
-    <Form tables={tables} />
+    <Form tables={tables} setTables={setTables} />
   );
 };
 

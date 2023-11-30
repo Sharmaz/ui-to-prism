@@ -1,4 +1,4 @@
-const placeholderTables = [
+const tablesData = [
   {
     id: 1,
     name: 'User',
@@ -7,16 +7,6 @@ const placeholderTables = [
         id: 3,
         name: 'id',
         type: 'int',
-      },
-      {
-        id: 4,
-        name: 'firstName',
-        type: 'string',
-      },
-      {
-        id: 5,
-        name: 'admin',
-        type: 'boolean',
       },
     ],
     relationships: [],
@@ -29,11 +19,6 @@ const placeholderTables = [
         id: 2,
         name: 'id',
         type: 'int',
-      },
-      {
-        id: 3,
-        name: 'github',
-        type: 'string',
       },
     ],
     relationships: [
@@ -48,4 +33,4 @@ const placeholderTables = [
   },
 ];
 
-export default placeholderTables;
+export default tablesData;
