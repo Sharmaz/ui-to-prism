@@ -47,7 +47,7 @@ describe('Attributes CRUD', () => {
   });
 
   test('Attribute should be deleted', () => {
-    const updatedData = [...data, ...deleteAttr(data[0], 1)];
+    const updatedData = [...data, ...deleteAttr(data[0], 2)];
     expect(updatedData[0].properties).toHaveLength(1);
   });
 });
