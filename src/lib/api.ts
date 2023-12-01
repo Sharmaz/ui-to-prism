@@ -39,7 +39,7 @@ export function deleteTable(tables, id) {
 
 export function createAttr(table) {
   const newAttr = {
-    id: 1,
+    id: table.properties.length + 1,
     name: 'attribute',
     type: 'type',
   };
